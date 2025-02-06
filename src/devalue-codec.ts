@@ -1,7 +1,7 @@
 import * as devalue from "devalue";
 import type { Opaque } from "opaque-type";
 
-export type SuperjsonSerializablePrimitive =
+export type DevalueSerializablePrimitive =
 	| string
 	| number
 	| boolean
@@ -22,30 +22,29 @@ export type SuperjsonSerializablePrimitive =
 	| undefined
 	| null;
 
-export interface SuperjsonSerializableRecord {
+export interface DevalueSerializableRecord {
 	[key: string]:
-		| SuperjsonSerializablePrimitive
-		| SuperjsonSerializablePrimitive[]
-		| SuperjsonSerializableRecord
-		| SuperjsonSerializableRecord[];
+		| DevalueSerializablePrimitive
+		| DevalueSerializablePrimitive[]
+		| DevalueSerializableRecord
+		| DevalueSerializableRecord[];
 }
 
-export type SuperjsonSerializable =
-	| SuperjsonSerializablePrimitive
-	| SuperjsonSerializablePrimitive[]
-	| SuperjsonSerializableRecord
-	| SuperjsonSerializableRecord[];
+export type DevalueSerializable =
+	| DevalueSerializablePrimitive
+	| DevalueSerializablePrimitive[]
+	| DevalueSerializableRecord
+	| DevalueSerializableRecord[];
 
 // @__NO_SIDE_EFFECTS__
-export const stringify = <T extends SuperjsonSerializable>(value: T) =>
-	devalue.stringify(value) as SuperjsonEncoded<T>;
+export const stringify = <T extends DevalueSerializable>(value: T) =>
+	devalue.stringify(value) as DevalueEncoded<T>;
 
 // @__NO_SIDE_EFFECTS__
-export const parse = <T extends SuperjsonSerializable>(
-	json: SuperjsonEncoded<T>,
-) => devalue.parse(json) as T;
+export const parse = <T extends DevalueSerializable>(json: DevalueEncoded<T>) =>
+	devalue.parse(json) as T;
 
 declare const type: unique symbol;
-export type SuperjsonEncoded<
-	T extends SuperjsonSerializable = SuperjsonSerializable,
+export type DevalueEncoded<
+	T extends DevalueSerializable = DevalueSerializable
 > = Opaque<string, { readonly [type]: T }>;
