@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/skyrpex/devalue-codec/compare/v1.0.1...v1.0.2) (2025-02-06)
+
+
+### Bug Fixes
+
+* types ([#5](https://github.com/skyrpex/devalue-codec/issues/5)) ([1fcd5e9](https://github.com/skyrpex/devalue-codec/commit/1fcd5e9c473e260805519cb9bd4a1a2fdf9d3182))
+
 ## [1.0.1](https://github.com/skyrpex/devalue-codec/compare/v1.0.0...v1.0.1) (2025-02-06)
 
 
