@@ -1,0 +1,14 @@
+queue_rules:
+  - name: default
+    merge_method: squash
+    conditions:
+      - "label=autorelease: pending"
+pull_request_rules:
+  - name: Automatic merge release PRs
+    conditions:
+      - "label=autorelease: pending"
+    actions:
+      merge:
+        method: squash
+      queue:
+        name: default

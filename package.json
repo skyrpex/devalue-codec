@@ -1,0 +1,30 @@
+{
+	"name": "devalue-codec",
+	"version": "1.0.0",
+	"description": "Uses devalue serialize expressions while retaining the original object type",
+	"author": {
+		"name": "Cristian Pallarés",
+		"email": "cristian@pallares.pro"
+	},
+	"license": "MIT",
+	"type": "module",
+	"exports": "./src/devalue-codec.ts",
+	"types": "./src/devalue-codec.ts",
+	"scripts": {
+		"test": "vitest --typecheck"
+	},
+	"dependencies": {
+		"devalue": "^5.1.1",
+		"opaque-type": "^1.0.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"typescript": "^5.7.3",
+		"vitest": "^3.0.5"
+	},
+	"engines": {
+		"node": ">=20"
+	},
+	"sideEffects": false,
+	"packageManager": "npm@11.1.0+sha512.acf301ad9b9ddba948fcb72341e2f0fcae477f56a95cc2a092934d133a7461062633cefbf93d5934a3dc0768674e2edee9f04dcfcc4bb4c327ff0e3a7d552a1b"
+}
