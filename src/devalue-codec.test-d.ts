@@ -21,3 +21,9 @@ test("parse retains type", () => {
 
 	assertType<{ key: string }>(decoded);
 });
+
+test("allows parsing untyped strings", () => {
+	const decoded = codec.parse("");
+
+	assertType<codec.DevalueSerializable>(decoded);
+});
