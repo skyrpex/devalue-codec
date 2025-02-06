@@ -36,15 +36,28 @@ export type DevalueSerializable =
 	| DevalueSerializableRecord
 	| DevalueSerializableRecord[];
 
+/**
+ * Serializes a {@link DevalueSerializable} object to a string.
+ */
 // @__NO_SIDE_EFFECTS__
-export const stringify = <T extends DevalueSerializable>(value: T) =>
-	devalue.stringify(value) as DevalueEncoded<T>;
+export function stringify<T extends DevalueSerializable>(value: T) {
+	return devalue.stringify(value) as DevalueEncoded<T>;
+}
+
+/**
+ * Parses a stringified {@link DevalueSerializable} object and returns the original object.
+ */
+export function parse<T extends DevalueSerializable>(
+	value: DevalueEncoded<T>,
+): T;
+export function parse(value: string): DevalueSerializable;
 
 // @__NO_SIDE_EFFECTS__
-export const parse = <T extends DevalueSerializable>(json: DevalueEncoded<T>) =>
-	devalue.parse(json) as T;
+export function parse(value: string) {
+	return devalue.parse(value);
+}
 
 declare const type: unique symbol;
 export type DevalueEncoded<
-	T extends DevalueSerializable = DevalueSerializable
+	T extends DevalueSerializable = DevalueSerializable,
 > = Opaque<string, { readonly [type]: T }>;
