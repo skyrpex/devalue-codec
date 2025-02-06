@@ -46,5 +46,5 @@ export const parse = <T extends DevalueSerializable>(json: DevalueEncoded<T>) =>
 
 declare const type: unique symbol;
 export type DevalueEncoded<
-	T extends DevalueSerializable = DevalueSerializable
+	T extends DevalueSerializable = DevalueSerializable,
 > = Opaque<string, { readonly [type]: T }>;
