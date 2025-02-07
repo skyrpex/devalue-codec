@@ -34,7 +34,7 @@ export const stringify = stringifier<Serializable, Forbidden>(
 );
 
 /**
- * Parses a stringified {@link Serializable} object and returns the original object.
+ * Parses a stringified {@link Serializable} object to its original object.
  */
 // @__NO_SIDE_EFFECTS__
 export const parse = parser<Serializable>(devalue.parse);
