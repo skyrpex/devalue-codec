@@ -16,9 +16,7 @@ export type DevalueSerializablePrimitive =
 	| Uint16Array
 	| Uint32Array
 	| Uint8ClampedArray
-	| Error
 	| RegExp
-	| URL
 	| undefined
 	| null;
 
