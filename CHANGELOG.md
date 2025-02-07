@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/skyrpex/devalue-codec/compare/v1.1.0...v1.2.0) (2025-02-07)
+
+
+### Features
+
+* adds check type ([bb6eebd](https://github.com/skyrpex/devalue-codec/commit/bb6eebd14e15f52bfbaea9b211d7023cfb5be85a))
+
 ## [1.1.0](https://github.com/skyrpex/devalue-codec/compare/v1.0.5...v1.1.0) (2025-02-07)
 
 
