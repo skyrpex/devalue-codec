@@ -1,16 +1,16 @@
-import { parser, stringifier } from "codec-builder";
+import { type SerializableRecord, parser, stringifier } from "codec-builder";
 import * as devalue from "devalue";
 
 export type { Stringified } from "codec-builder";
 
-export type Serializable =
+export type SerializablePrimitive =
 	| string
 	| number
 	| boolean
 	| Date
 	| bigint
-	| Map<unknown, Serializable>
-	| Set<Serializable>
+	| Map<unknown, SerializablePrimitive>
+	| Set<SerializablePrimitive>
 	| Int8Array
 	| Int16Array
 	| Int32Array
@@ -22,19 +22,21 @@ export type Serializable =
 	| undefined
 	| null;
 
+export type Serializable = SerializableRecord<SerializablePrimitive>;
+
 // biome-ignore lint/complexity/noBannedTypes: we need to forbid Function
 type Forbidden = symbol | URL | Function;
 
 /**
- * Serializes a {@link Serializable} object to a string.
+ * Serializes a {@link SerializablePrimitive} object to a string.
  */
 // @__NO_SIDE_EFFECTS__
-export const stringify = stringifier<Serializable, Forbidden>(
+export const stringify = stringifier<SerializablePrimitive, Forbidden>(
 	devalue.stringify,
 );
 
 /**
- * Parses a stringified {@link Serializable} object to its original object.
+ * Parses a stringified {@link SerializablePrimitive} object to its original object.
  */
 // @__NO_SIDE_EFFECTS__
-export const parse = parser<Serializable>(devalue.parse);
+export const parse = parser<SerializablePrimitive>(devalue.parse);
