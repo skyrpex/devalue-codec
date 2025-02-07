@@ -32,13 +32,13 @@ npm install devalue-codec
 ## Usage
 
 ```ts
-import * as codec from "devalue-codec";
+import { stringify, parse } from "devalue-codec";
 
-const encoded = codec.stringify({
+const encoded = stringify({
 	key: "value",
 });
 
-const decoded = codec.parse(encoded);
+const decoded = parse(encoded);
 ```
 
 ## Other codecs
