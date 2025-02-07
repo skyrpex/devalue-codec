@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/skyrpex/devalue-codec/compare/v1.0.4...v1.0.5) (2025-02-07)
+
+
+### Bug Fixes
+
+* convert Serializable to a record type ([c6782d9](https://github.com/skyrpex/devalue-codec/commit/c6782d952301be2b65bfcef33c5de55954d197df))
+
 ## [1.0.4](https://github.com/skyrpex/devalue-codec/compare/v1.0.3...v1.0.4) (2025-02-07)
 
 

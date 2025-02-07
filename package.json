@@ -1,6 +1,6 @@
 {
 	"name": "devalue-codec",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"description": "Uses devalue serialize expressions while retaining the original object type",
 	"author": {
 		"name": "Cristian Pallarés",
