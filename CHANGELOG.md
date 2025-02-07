@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/skyrpex/devalue-codec/compare/v1.0.5...v1.1.0) (2025-02-07)
+
+
+### Features
+
+* expose forbidden types ([4801437](https://github.com/skyrpex/devalue-codec/commit/480143728bbea0d7876a2113a37da82c7edfd392))
+
 ## [1.0.5](https://github.com/skyrpex/devalue-codec/compare/v1.0.4...v1.0.5) (2025-02-07)
 
 
