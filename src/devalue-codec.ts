@@ -25,7 +25,7 @@ export type SerializablePrimitive =
 export type Serializable = SerializableRecord<SerializablePrimitive>;
 
 // biome-ignore lint/complexity/noBannedTypes: we need to forbid Function
-type Forbidden = symbol | URL | Function;
+export type Forbidden = symbol | URL | Function;
 
 /**
  * Serializes a {@link SerializablePrimitive} object to a string.
