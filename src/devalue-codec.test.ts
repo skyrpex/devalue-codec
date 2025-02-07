@@ -1,10 +1,10 @@
 import * as devalue from "devalue";
 import { expect, test } from "vitest";
-import * as codec from "./devalue-codec.ts";
+import { parse, stringify } from "./devalue-codec.ts";
 
 test("stringifies correctly using superjson", () => {
 	expect(
-		codec.stringify({
+		stringify({
 			key: "value",
 		}),
 	).toEqual(
@@ -16,8 +16,8 @@ test("stringifies correctly using superjson", () => {
 
 test("parses correctly", () => {
 	expect(
-		codec.parse(
-			codec.stringify({
+		parse(
+			stringify({
 				key: "value",
 			}),
 		),
@@ -27,25 +27,23 @@ test("parses correctly", () => {
 });
 
 test("works with dates", () => {
-	expect(codec.parse(codec.stringify(new Date("2025-01-01T01:01:01")))).toEqual(
+	expect(parse(stringify(new Date("2025-01-01T01:01:01")))).toEqual(
 		new Date("2025-01-01T01:01:01"),
 	);
 });
 
 test("works with bigints", () => {
-	expect(codec.parse(codec.stringify(7777n))).toEqual(7777n);
+	expect(parse(stringify(7777n))).toEqual(7777n);
 });
 
 test("works with maps", () => {
-	expect(codec.parse(codec.stringify(new Map([["key", "value"]])))).toEqual(
+	expect(parse(stringify(new Map([["key", "value"]])))).toEqual(
 		new Map([["key", "value"]]),
 	);
 });
 
 test("works with sets", () => {
-	expect(codec.parse(codec.stringify(new Set([1, 2, 3])))).toEqual(
-		new Set([1, 2, 3]),
-	);
+	expect(parse(stringify(new Set([1, 2, 3])))).toEqual(new Set([1, 2, 3]));
 });
 
 for (const ArrayContrustor of [
@@ -58,20 +56,20 @@ for (const ArrayContrustor of [
 	Uint8ClampedArray,
 ]) {
 	test(`works with ${ArrayContrustor.name}`, () => {
-		expect(
-			codec.parse(codec.stringify(new ArrayContrustor([1, 2, 3]))),
-		).toEqual(new ArrayContrustor([1, 2, 3]));
+		expect(parse(stringify(new ArrayContrustor([1, 2, 3])))).toEqual(
+			new ArrayContrustor([1, 2, 3]),
+		);
 	});
 }
 
 test("works with undefined", () => {
-	expect(codec.parse(codec.stringify(undefined))).toBe(undefined);
+	expect(parse(stringify(undefined))).toBe(undefined);
 });
 
 test("works with null", () => {
-	expect(codec.parse(codec.stringify(null))).toBe(null);
+	expect(parse(stringify(null))).toBe(null);
 });
 
 test("works with regexp", () => {
-	expect(codec.parse(codec.stringify(/test/))).toEqual(/test/);
+	expect(parse(stringify(/test/))).toEqual(/test/);
 });

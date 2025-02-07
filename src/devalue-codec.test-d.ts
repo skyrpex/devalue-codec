@@ -6,10 +6,10 @@ test("stringify retains type", () => {
 		key: "value",
 	});
 
-	assertType<codec.DevalueEncoded<{ key: string }>>(encoded);
+	assertType<codec.Stringified<{ key: string }>>(encoded);
 
 	// @ts-expect-error Cannot assign a string to a number
-	assertType<codec.DevalueEncoded<{ key: number }>>(encoded);
+	assertType<codec.Stringified<{ key: number }>>(encoded);
 });
 
 test("parse retains type", () => {
@@ -22,8 +22,39 @@ test("parse retains type", () => {
 	assertType<{ key: string }>(decoded);
 });
 
-test("allows parsing untyped strings", () => {
-	const decoded = codec.parse("");
+test("allows stringifying interfaces", () => {
+	interface MyOptions {
+		string: string;
+	}
+	const options: MyOptions = {
+		string: "string",
+	};
 
-	assertType<codec.DevalueSerializable>(decoded);
+	const encoded = codec.stringify(options);
+});
+
+test("allows stringifying types", () => {
+	type MyOptions = {
+		string: string;
+	};
+	const options: MyOptions = {
+		string: "string",
+	};
+
+	const encoded = codec.stringify(options);
+});
+
+test("forbids unsupported types", () => {
+	// @ts-expect-error Unsupported type
+	codec.stringify(new URL(""));
+
+	codec.stringify({
+		// @ts-expect-error Unsupported type
+		url: new URL(""),
+	});
+
+	codec.stringify({
+		// @ts-expect-error Unsupported type
+		map: new Map([["", new URL("")]]),
+	});
 });
