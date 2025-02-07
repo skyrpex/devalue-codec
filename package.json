@@ -15,8 +15,7 @@
 	},
 	"dependencies": {
 		"codec-builder": "^1.0.1",
-		"devalue": "^5.1.1",
-		"opaque-type": "^1.0.0"
+		"devalue": "^5.1.1"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
