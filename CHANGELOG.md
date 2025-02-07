@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.4](https://github.com/skyrpex/devalue-codec/compare/v1.0.3...v1.0.4) (2025-02-07)
+
+
+### Bug Fixes
+
+* handle interface types ([eeb2a23](https://github.com/skyrpex/devalue-codec/commit/eeb2a2394892a243449cb770e22b852e05e19ff6))
+* remove unused dependency ([b38470f](https://github.com/skyrpex/devalue-codec/commit/b38470fbb6971681fc92441d0835c6c20003e797))
+
 ## [1.0.3](https://github.com/skyrpex/devalue-codec/compare/v1.0.2...v1.0.3) (2025-02-07)
 
 
