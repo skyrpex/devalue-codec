@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/skyrpex/devalue-codec/compare/v1.0.2...v1.0.3) (2025-02-07)
+
+
+### Bug Fixes
+
+* remove unsupported types ([9eab419](https://github.com/skyrpex/devalue-codec/commit/9eab4198fd050253f950d4d0ab011a964e9c6cbb))
+
 ## [1.0.2](https://github.com/skyrpex/devalue-codec/compare/v1.0.1...v1.0.2) (2025-02-06)
 
 
